@@ -1,5 +1,8 @@
 package org.welleby.tomcom.messages;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum MessageType {
 	ACKNOWLEDGE (0),
 	SENSOR_REPORT_REQUEST (1),
@@ -12,6 +15,13 @@ public enum MessageType {
 	SERVER_INFO_RESPONSE (8);
 	
 	private int tgmNr;
+	private static Map<Integer, MessageType> messageMap = new HashMap<>();
+	
+	static {
+		for(MessageType msgType : MessageType.values()) {
+			messageMap.put(msgType.getTgmNr(), msgType);
+		}
+	}
 	
 	MessageType (int tgmNr){
 		this.setTgmNr(tgmNr);
@@ -23,5 +33,9 @@ public enum MessageType {
 
 	private void setTgmNr(int tgmNr) {
 		this.tgmNr = tgmNr;
+	}
+
+	public static MessageType parse(int telegramNumber) {
+		return messageMap.get(telegramNumber);
 	}
 }
