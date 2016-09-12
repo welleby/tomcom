@@ -14,8 +14,8 @@ public enum MessageType {
 	SERVER_INFO_REQUEST (7),
 	SERVER_INFO_RESPONSE (8);
 	
-	private int tgmNr;
-	private static Map<Integer, MessageType> messageMap = new HashMap<>();
+	private long tgmNr;
+	private static Map<Long, MessageType> messageMap = new HashMap<>();
 	
 	static {
 		for(MessageType msgType : MessageType.values()) {
@@ -23,19 +23,19 @@ public enum MessageType {
 		}
 	}
 	
-	MessageType (int tgmNr){
+	MessageType (long tgmNr){
 		this.setTgmNr(tgmNr);
 	}
 
-	public int getTgmNr() {
+	public long getTgmNr() {
 		return tgmNr;
 	}
 
-	private void setTgmNr(int tgmNr) {
+	private void setTgmNr(long tgmNr) {
 		this.tgmNr = tgmNr;
 	}
 
-	public static MessageType parse(int telegramNumber) {
+	public static MessageType parse(long telegramNumber) {
 		return messageMap.get(telegramNumber);
 	}
 }

@@ -1,4 +1,4 @@
-package org.welleby.tomcom.json433;
+package org.welleby.tomcom.json433.messages;
 
 public class MessageParsingException extends Exception {
 	public MessageParsingException(String string) {

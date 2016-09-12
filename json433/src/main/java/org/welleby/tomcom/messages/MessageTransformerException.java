@@ -5,6 +5,10 @@ public class MessageTransformerException extends Exception {
 		super(string);
 	}
 
+	public MessageTransformerException(String string, ClassCastException e) {
+		super(string,e);
+	}
+
 	private static final long serialVersionUID = -7642017392247776074L;
 	
 }
