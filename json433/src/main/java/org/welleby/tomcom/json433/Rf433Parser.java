@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.welleby.tomcom.json433.messages.HeaderBitMask;
 import org.welleby.tomcom.json433.messages.MessageParsingException;
+import org.welleby.tomcom.json433.transformers.Rf433MessageTransformer;
 import org.welleby.tomcom.messages.AbstractMessage;
 import org.welleby.tomcom.messages.MessageTransformerException;
 import org.welleby.tomcom.messages.MessageType;

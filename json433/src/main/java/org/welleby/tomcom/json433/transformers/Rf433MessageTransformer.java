@@ -1,11 +1,9 @@
-package org.welleby.tomcom.json433;
+package org.welleby.tomcom.json433.transformers;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.welleby.tomcom.json433.handlers.AcknowledgeHandler;
-import org.welleby.tomcom.json433.handlers.MessageHandler;
 import org.welleby.tomcom.messages.AbstractMessage;
 import org.welleby.tomcom.messages.MessageTransformer;
 import org.welleby.tomcom.messages.MessageTransformerException;
@@ -13,7 +11,7 @@ import org.welleby.tomcom.messages.MessageType;
 
 public class Rf433MessageTransformer implements MessageTransformer {
 
-	private Map<MessageType,MessageHandler> handlerMap = new HashMap<>();
+	private Map<MessageType,MessageTransformer> handlerMap = new HashMap<>();
 	
 	public Rf433MessageTransformer() {
 		handlerMap.put(MessageType.ACKNOWLEDGE,	new AcknowledgeHandler());
@@ -29,7 +27,13 @@ public class Rf433MessageTransformer implements MessageTransformer {
 			throw new MessageTransformerException("Unexpected data",e);
 		}
 		
-		return handlerMap.get(msgType).handleMessage(bytes);
+		return handlerMap.get(msgType).getMessage(msgType, data);
+	}
+
+	@Override
+	public List<Byte> getBytes(AbstractMessage data) throws MessageTransformerException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
