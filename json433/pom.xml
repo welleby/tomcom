@@ -8,7 +8,7 @@
 	<description>Listens for and converts 433mhz messages to JSON</description>
 
 	<properties>
-		<java-version>1.8</java-version>
+		<java-version>1.7</java-version>
 	</properties>
 
 	<dependencies>
@@ -24,7 +24,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.5.1</version>
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>
