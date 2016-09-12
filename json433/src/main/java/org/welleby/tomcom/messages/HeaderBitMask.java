@@ -1,4 +1,4 @@
-package org.welleby.tomcom.json433.messages;
+package org.welleby.tomcom.messages;
 
 import java.util.ArrayList;
 import java.util.List;

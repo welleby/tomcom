@@ -1,4 +1,4 @@
-package org.welleby.tomcom.json433.transformers;
+package org.welleby.tomcom.transformers;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,25 +9,18 @@ import org.welleby.tomcom.messages.MessageTransformer;
 import org.welleby.tomcom.messages.MessageTransformerException;
 import org.welleby.tomcom.messages.MessageType;
 
-public class Rf433MessageTransformer implements MessageTransformer {
+public class MessageTransformerImpl implements MessageTransformer {
 
 	private Map<MessageType,MessageTransformer> handlerMap = new HashMap<>();
 	
-	public Rf433MessageTransformer() {
+	public MessageTransformerImpl() {
 		handlerMap.put(MessageType.ACKNOWLEDGE,	new AcknowledgeHandler());
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public AbstractMessage getMessage(MessageType msgType, Object data) throws MessageTransformerException {
-		List<Byte> bytes;
-		try {
-			bytes = (List<Byte>)data;
-		} catch (ClassCastException e) {
-			throw new MessageTransformerException("Unexpected data",e);
-		}
-		
-		return handlerMap.get(msgType).getMessage(msgType, data);
+	public AbstractMessage getMessage(MessageType msgType,List<Byte> bytes) throws MessageTransformerException {
+		return handlerMap.get(msgType).getMessage(msgType, bytes);
 	}
 
 	@Override

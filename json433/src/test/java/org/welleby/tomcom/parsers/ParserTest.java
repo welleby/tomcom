@@ -1,13 +1,14 @@
-package org.welleby.tomcom.json433;
+package org.welleby.tomcom.parsers;
 
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.welleby.tomcom.json433.messages.Acknowledge;
-import org.welleby.tomcom.json433.messages.MessageParsingException;
+import org.welleby.tomcom.messages.Acknowledge;
+import org.welleby.tomcom.messages.MessageParsingException;
+import org.welleby.tomcom.parsers.Parser;
 
-public class Rf433ParserTest {
+public class ParserTest {
 	private List<Byte> input;
 	
 	@Before
@@ -20,8 +21,7 @@ public class Rf433ParserTest {
 	}
 	
 	@Test
-	public void parseAcknowledge() throws MessageParsingException {
-		
-		Rf433Parser.getMessage(input);
+	public void acknowledgeBytes2Msg_Test() throws MessageParsingException {
+		Parser.getMessage(input);
 	}
 }
