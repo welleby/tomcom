@@ -5,7 +5,7 @@ public class MessageTransformerException extends Exception {
 		super(string);
 	}
 
-	public MessageTransformerException(String string, ClassCastException e) {
+	public MessageTransformerException(String string, Exception e) {
 		super(string,e);
 	}
 

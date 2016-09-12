@@ -5,22 +5,20 @@ import java.util.List;
 import java.util.Map;
 
 import org.welleby.tomcom.messages.AbstractMessage;
-import org.welleby.tomcom.messages.MessageTransformer;
 import org.welleby.tomcom.messages.MessageTransformerException;
 import org.welleby.tomcom.messages.MessageType;
 
 public class MessageTransformerImpl implements MessageTransformer {
 
-	private Map<MessageType,MessageTransformer> handlerMap = new HashMap<>();
+	private Map<MessageType, MessageTransformer> handlerMap = new HashMap<>();
 	
 	public MessageTransformerImpl() {
-		handlerMap.put(MessageType.ACKNOWLEDGE,	new AcknowledgeHandler());
+		handlerMap.put(MessageType.ACKNOWLEDGE,	new AcknowledgeTransformer());
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public AbstractMessage getMessage(MessageType msgType,List<Byte> bytes) throws MessageTransformerException {
-		return handlerMap.get(msgType).getMessage(msgType, bytes);
+		return null;
 	}
 
 	@Override

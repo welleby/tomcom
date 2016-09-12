@@ -40,10 +40,4 @@ public class Acknowledge extends AbstractMessage {
 			
 		return result;
 	}
-
-	@Override
-	public AbstractMessage getMessage() throws MessageParsingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
