@@ -18,7 +18,9 @@ public class MessageTransformerImpl implements MessageTransformer {
 	
 	@Override
 	public AbstractMessage getMessage(MessageType msgType,List<Byte> bytes) throws MessageTransformerException {
-		return null;
+		if(!handlerMap.containsKey(msgType))
+			throw new MessageTransformerException("Invalid messageType");
+		return handlerMap.get(msgType).getMessage(msgType, bytes);
 	}
 
 	@Override
