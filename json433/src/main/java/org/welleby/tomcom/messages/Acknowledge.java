@@ -3,6 +3,8 @@ package org.welleby.tomcom.messages;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.welleby.tomcom.messages.masks.HeaderBitMask;
+
 import com.google.common.primitives.Bytes;
 import com.google.common.primitives.Longs;
 

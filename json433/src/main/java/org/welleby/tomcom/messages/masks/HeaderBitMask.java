@@ -1,7 +1,9 @@
-package org.welleby.tomcom.messages;
+package org.welleby.tomcom.messages.masks;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.welleby.tomcom.messages.MessageParsingException;
 
 public enum HeaderBitMask {
 	CLIENT_ID(0b11111111, 0, 0),
@@ -32,7 +34,7 @@ public enum HeaderBitMask {
 		if(bytes==null || bytes.size()<mask.getByteNr()+1)
 			throw new MessageParsingException("Error while getting clientId from bytes");
 		else 
-			return bytes.get(mask.getByteNr()) & mask.getMask();
+			return bytes.get(mask.getByteNr()) & mask.getMask() >> mask.getShift();
 	}
 	public static List<Byte> getBytes(long value, HeaderBitMask mask) {
 		List<Byte> result = new ArrayList<>();

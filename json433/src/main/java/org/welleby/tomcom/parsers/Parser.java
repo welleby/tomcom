@@ -3,7 +3,7 @@ package org.welleby.tomcom.parsers;
 import java.util.List;
 
 import org.welleby.tomcom.messages.AbstractMessage;
-import org.welleby.tomcom.messages.HeaderBitMask;
+import org.welleby.tomcom.messages.masks.HeaderBitMask;
 import org.welleby.tomcom.messages.MessageParsingException;
 import org.welleby.tomcom.messages.MessageTransformerException;
 import org.welleby.tomcom.messages.MessageType;
