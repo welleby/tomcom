@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.welleby.tomcom.messages.AbstractMessage;
 import org.welleby.tomcom.messages.Acknowledge;
 import org.welleby.tomcom.messages.MessageParsingException;
 import org.welleby.tomcom.parsers.Parser;
@@ -22,6 +23,6 @@ public class ParserTest {
 	
 	@Test
 	public void acknowledgeBytes2Msg_Test() throws MessageParsingException {
-		Parser.getMessage(input);
+		AbstractMessage message = Parser.getMessage(input);
 	}
 }
