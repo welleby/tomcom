@@ -8,7 +8,7 @@ import org.welleby.tomcom.messages.masks.HeaderBitMask;
 import com.google.common.primitives.Bytes;
 import com.google.common.primitives.Longs;
 
-public abstract class Header{
+public class Header{
 	private Long userId; //The unique User (not needed for small scale
 	private Long clientId; //The RF-clientId
 	private Long componentId; //The Id of the component on the client
@@ -46,7 +46,7 @@ public abstract class Header{
 		return messageType;
 	}
 	
-	public List<Byte> getHeaderBytes() throws MessageParsingException{
+	public List<Byte> getBytes() throws MessageParsingException{
 		List<Byte> result = new ArrayList<>();
 		if(getUserId()!=null) {
 			byte[] byteArray = Longs.toByteArray(getUserId());

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SensorReport extends AbstractMessage{
+public class SensorReport extends RecipeMessage{
 
 	private Map<String,Object> values = new HashMap<>();
 	
@@ -14,7 +14,7 @@ public class SensorReport extends AbstractMessage{
 
 	@Override
 	public List<Byte> getBytes() throws MessageParsingException {
-		List<Byte> result = getHeaderBytes();
+		List<Byte> result = super.getBytes();
 		for(Object value : values.values()){
 			result.addAll(toBytes(value));
 		}

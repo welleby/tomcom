@@ -9,6 +9,10 @@ public class MessageTransformerException extends Exception {
 		super(string,e);
 	}
 
+	public MessageTransformerException(MessageParsingException e) {
+		super(e);
+	}
+
 	private static final long serialVersionUID = -7642017392247776074L;
 	
 }

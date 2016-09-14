@@ -8,12 +8,15 @@ import com.google.common.primitives.Ints;
 import com.google.common.primitives.Longs;
 import com.google.common.primitives.Shorts;
 
-public abstract class AbstractMessage extends Header {
+public abstract class AbstractMessage {
+	private Header header;
 
-	public AbstractMessage(MessageType messageType) {
-		super(messageType);
+	public AbstractMessage(MessageType msgType) {
+		this.setHeader(new Header(msgType));
 	}
-	public abstract List<Byte> getBytes() throws MessageParsingException;
+	public List<Byte> getBytes() throws MessageParsingException{
+		return getHeader().getBytes();
+	}
 	
 	public List<Byte> toBytes(Object value) throws MessageParsingException{
 		List<Byte> result = new ArrayList<>();
@@ -37,5 +40,11 @@ public abstract class AbstractMessage extends Header {
 			throw new MessageParsingException("Could not convert value to bytes " + value);
 		
 		return result;
+	}
+	public Header getHeader() {
+		return header;
+	}
+	public void setHeader(Header header) {
+		this.header = header;
 	}
 }
