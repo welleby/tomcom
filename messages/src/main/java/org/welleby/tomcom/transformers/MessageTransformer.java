@@ -23,7 +23,7 @@ public abstract class MessageTransformer {
 		if(msgType!=getTransformerType())
 			throw new MessageTransformerException("Invalid message type");
 		
-		if(bytes==null || bytes.size()<4){
+		if(bytes==null || bytes.size()<3){
 			logger.error("Expected at least 3 bytes. Got " + bytes==null ? "null" : bytes.size());
 			throw new MessageTransformerException("To few bytes");
 		}

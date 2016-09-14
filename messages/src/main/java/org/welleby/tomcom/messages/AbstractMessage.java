@@ -47,4 +47,29 @@ public abstract class AbstractMessage {
 	public void setHeader(Header header) {
 		this.header = header;
 	}
+	
+	public Long getClientId() {
+		return getHeader().getClientId();
+	}
+	public void setClientId(long clientId) {
+		header.setClientId(clientId);
+	}
+	public Long getSequenceNumber() {
+		return getHeader().getSequenceNumber();
+	}
+	public void setSequenceNumber(long sequenceNumber) {
+		header.setSequenceNumber(sequenceNumber);
+	}
+	public Long getUserId() {
+		return getHeader().getUserId();
+	}
+	public void setUserId(long userId) {
+		header.setUserId(userId);
+	}
+	public Long getComponentId() {
+		return getHeader().getComponentId();
+	}
+	public void setComponentId(long componentId) {
+		header.setComponentId(componentId);
+	}
 }
