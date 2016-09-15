@@ -1,5 +1,9 @@
 package org.welleby.tomcom.recipes;
 
+/**
+ * Used to convert JsonText to java types using reflection
+ *
+ */
 public enum TypeConverter {
 	BIT,
 	NIBBLE,
@@ -7,6 +11,5 @@ public enum TypeConverter {
 	SHORT,
 	INT,
 	LONG,
-	STRING,
-	
+	STRING
 }

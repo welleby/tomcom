@@ -1,5 +1,5 @@
 {
 	"basicTempSensor" : {
-		"temp" : "int"
+		"temp" : "INT"
 	}
 }
